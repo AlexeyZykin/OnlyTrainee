@@ -176,15 +176,15 @@ class NewsList extends CBitrixComponent
         $errors = [];
 
         if (empty($this->arParams["IBLOCK_TYPE"]) && empty($this->arParams["IBLOCK_ID"])) {
-            $errors[] = "IBLOCK_TYPE or IBLOCK_ID is required";
+            $errors[] = GetMessage("IBLOCK_TYPE_OR_ID_REQUIRED");
         }
 
         if (!empty($this->arParams["IBLOCK_ID"]) && !is_numeric($this->arParams["IBLOCK_ID"])) {
-            $errors[] = "INVALID IBLOCK_ID format: {$this->arParams["IBLOCK_ID"]}";
+            $errors[] = GetMessage("INVALID_IBLOCK_ID_FORMAT");
         }
 
         if ($this->arParams["USE_PERMISSIONS"] && !$this->bUSER_HAVE_ACCESS) {
-            $errors[] = "Access denied";
+            $errors[] = GetMessage("ACCESS_DENIED");
         }
 
         if (count($errors) !== 0) {
