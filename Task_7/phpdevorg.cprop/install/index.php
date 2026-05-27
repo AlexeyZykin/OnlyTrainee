@@ -91,6 +91,12 @@ class phpdevorg_cprop extends CModule
                 'TO_CLASS' => 'CIBlockPropertyCprop',
                 'TO_METHOD' => 'GetUserTypeDescription'
             ],
+            [
+                'FROM_MODULE' => 'main',
+                'EVENT' => 'OnUserTypeBuildList',
+                'TO_CLASS' => 'UFProperty',
+                'TO_METHOD' => 'GetUserTypeDescription'
+            ],
         ];
     }
 
