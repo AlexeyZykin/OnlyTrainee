@@ -1,0 +1,17 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    env_file:
+      - .env
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - ya-disk-network
+    command: bash -c "composer dump-autoload -o && apache2-foreground"
+
+networks:
+  ya-disk-network:
+    driver: bridge
